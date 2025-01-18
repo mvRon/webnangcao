@@ -17,8 +17,8 @@ const EmailUtil = {
                 subject : 'Signup | Verification',
                 text : text
             };
-            transporter.sendMail (mailOptions , function ( err, result ) {
-                if ( err ) reject ( err ) ;
+            transporter.sendMail(mailOptions, function ( err, result ) {
+                if ( err ) reject( err ) ;
                 resolve ( true ) ;
             });
         });

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import MyContext from '../contexts/MyContext.js';
+import MyContext from '../contexts/MyContext';
 
 class Login extends Component {
   static contextType = MyContext; // using this.context to access global state
@@ -22,15 +22,14 @@ class Login extends Component {
                 <tr>
                   <td>Username</td>
                   <td><input type="text" value={this.state.txtUsername} onChange={(e) => {
-                    this
-                      .setState({ txtUsername: e.target.value })
-                  }} /></td>
+                    this.setState({ txtUsername: e.target.value })
+                  }}/></td>
                 </tr>
                 <tr>
                   <td>Password</td>
                   <td><input type="password" value={this.state.txtPassword} onChange={(e) => {
                     this.setState({ txtPassword: e.target.value })
-                  }} /></td>
+                  }}/></td>
                 </tr>
                 <tr>
                   <td></td>
@@ -43,8 +42,9 @@ class Login extends Component {
         </div>
       );
     }
-    return (<div />);
+    return (<div/>);
   }
+
   // event-handlers
   btnLoginClick(e) {
     e.preventDefault();

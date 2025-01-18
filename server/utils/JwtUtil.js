@@ -2,10 +2,9 @@ const jwt = require ('jsonwebtoken') ;
 const MyConstants = require ('./MyConstants') ;
 const JwtUtil = {
     genToken ( username , password ) {
-        const token = jwt.sign (
-            { username : username, password : password } ,
-            MyConstants . JWT_SECRET,
-
+        const token = jwt.sign(
+            { username : username, password : password },
+            MyConstants.JWT_SECRET,
             { expiresIn : MyConstants.JWT_EXPIRES }
         );
         return token;
@@ -32,4 +31,4 @@ const JwtUtil = {
         }
     }
 };
-module . exports = JwtUtil;
+module.exports = JwtUtil;

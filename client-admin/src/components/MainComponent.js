@@ -9,17 +9,17 @@ class Main extends Component {
     render() {
         if (this.context.token !== '') {
             return (
-                < div className="body - admin ">
-                    < Menu />
+                <div className="body-admin">
+                    <Menu/>
                     <Routes>
                         <Route path='/admin' element={<Navigate replace to='/admin/home' />} />
-                        <Route path='/admin/home' element={<Home />} />
+                        <Route path='/admin/home' element={<Home/>} />
                     </Routes>
-                    < Home />
-                </ div >
+                    <Home/>
+                </div>
             );
         }
-        return (< div />);
+        return (<div/>);
     }
 }
 export default Main;
