@@ -21,7 +21,7 @@ if (username && password) {
 }
 });
 router.get('/token', JwtUtil.checkToken, function (req, res) {
-const token = req.headers['x-access-token'] || req.headers['authorization'];
-res.json({ success: true, message: 'Token is valid', token: token });
+  const token = req.headers['x-access-token'] || req.headers['authorization'];
+  res.json({ success: true, message: 'Token is valid', token: token });
 });
 module.exports = router;
