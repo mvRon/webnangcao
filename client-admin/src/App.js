@@ -9,11 +9,11 @@ class App extends Component {
   render() {
     return (
       <MyProvider>
-        <Login />
-        <BrowserRouter >
-          <Main />
-      </MyProvider>
+        <Login/>
+        <BrowserRouter>
+          <Main/>
       </BrowserRouter>
+      </MyProvider>
     );
   }
 }

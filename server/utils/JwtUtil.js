@@ -1,36 +1,35 @@
-const jwt = require (' jsonwebtoken ') ;
-const MyConstants = require ('./ MyConstants ') ;
+const jwt = require ('jsonwebtoken') ;
+const MyConstants = require ('./MyConstants') ;
 const JwtUtil = {
     genToken ( username , password ) {
-        const token = jwt . sign (
-            { username : username , password : password } ,
-            MyConstants . JWT_SECRET ,
+        const token = jwt.sign (
+            { username : username, password : password } ,
+            MyConstants . JWT_SECRET,
 
-            // tranghongson@gmail.com
-            { expiresIn : MyConstants . JWT_EXPIRES }
+            { expiresIn : MyConstants.JWT_EXPIRES }
         );
-        return token ;
+        return token;
     },
     checkToken ( req , res , next ) {
-        const token = req . headers ['x-access - token '] || req . headers [' authorization '];
+        const token = req.headers['x-access-token'] || req.headers['authorization'];
         if ( token ) {
-            jwt.verify( token , MyConstants . JWT_SECRET , ( err , decoded ) => {
+            jwt.verify( token, MyConstants.JWT_SECRET, ( err , decoded ) => {
                 if ( err ) {
                     return res.json ({
-                        success : false ,
-                        message : 'Token is not valid '
-                    }) ;
+                        success : false,
+                        message : 'Token is not valid'
+                    });
                 } else {
-                    req.decoded = decoded ;
-                    next () ;
+                    req.decoded = decoded;
+                    next ();
                 }
-            }) ;
+            });
         } else {
-            return res . json ({
-                success : false ,
-                message : 'Auth token is not supplied '
-            }) ;
+            return res.json ({
+                success : false,
+                message : 'Auth token is not supplied'
+            });
         }
     }
 };
-module . exports = JwtUtil ;
+module . exports = JwtUtil;
