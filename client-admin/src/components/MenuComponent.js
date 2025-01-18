@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import MyContext from '../contexts/MyContext';
+import { Link } from 'react-router-dom';
+
 class Menu extends Component {
   static contextType = MyContext; // using this.context to access global state
   render() {
@@ -7,15 +9,15 @@ class Menu extends Component {
       <div className="border-bottom">
         <div className="float-left">
           <ul className="menu">
-            <li className="menu"><a href="">Home</a></li>
-            <li className="menu"><a href="">Category</a></li>
-            <li className="menu"><a href="">Product</a></li>
-            <li className="menu"><a href="">Order</a></li>
-            <li className="menu"><a href="">Customer</a></li>
+              <li className="menu"><Link to='/admin/home'>Home</Link></li>
+              <li className="menu"><Link to=''>Category</Link></li>
+              <li className="menu"><Link to=''>Product</Link></li>
+              <li className="menu"><Link to=''>Order</Link></li>
+              <li className="menu"><Link to=''>Customer</Link></li>
           </ul>
         </div>
         <div className="float-right">
-          Hello <b>{this.context.username}</b> | <a href="" onClick={() => this.lnkLogoutClick
+          Hello <b>{this.context.username}</b> | <a href='/admin/home' onClick={() => this.lnkLogoutClick
             ()}>Logout</a>
         </div>
         <div className="float-clear" />
