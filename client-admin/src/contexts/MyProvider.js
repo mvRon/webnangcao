@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import MyContext from './MyContext';
 
 class MyProvider extends Component {
-constructor(props) {
-  super(props);
-  this.state = { // global state
-    // variables
-    token: '',
-    username: '',
-    // functions
-    setToken: this.setToken,
-    setUsername: this.setUsername
-  };
-}
+  constructor(props) {
+    super(props);
+    this.state = { // global state
+      // variables
+      token: '',
+      username: '',
+      // functions
+      setToken: this.setToken,
+      setUsername: this.setUsername
+    };
+  }
   setToken = (value) => {
     this.setState({ token: value });
   }
@@ -22,9 +22,9 @@ constructor(props) {
   render() {
     return (
       <MyContext.Provider value={this.state}>
-    {this.props.children}
-  </MyContext.Provider>
-  );
-}
+        {this.props.children}
+      </MyContext.Provider>
+    );
+  }
 }
 export default MyProvider;
