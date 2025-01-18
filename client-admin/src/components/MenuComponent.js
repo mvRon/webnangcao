@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MyContext from '../contexts/MyContext';
+import MyContext from '../contexts/MyContext.js';
 import { Link } from 'react-router-dom';
 
 class Menu extends Component {

@@ -1,7 +1,7 @@
-import React, { Component } from 'react ';
-import MyContext from '../ contexts / MyContext ';
-import Menu from './ MenuComponent ';
-import Home from './ HomeComponent ';
+import React, { Component } from 'react';
+import MyContext from '../contexts/MyContext';
+import Menu from './MenuComponent';
+import Home from './HomeComponent';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 class Main extends Component {
