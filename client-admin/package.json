@@ -36,6 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "/admin",
-  "proxy":"http://localhost:3000"
+  "homepage": "/admin"
 }
