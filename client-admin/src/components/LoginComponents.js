@@ -9,22 +9,20 @@ class Login extends Component {
     this.state = {
       txtUsername: '',
       txtPassword: ''
- 12 };
- 13 }
- 14 render() {
- 15 if (this.context.token === '') {
- 16 return (
- 17 <div className="align-valign-center">
- 18 <h2 className="text-center">ADMIN LOGIN</h2>
- 19 <form>
- 20 <table className="align-center">
- 21 <tbody>
- 22 <tr>
- 23 <td>Username</td>
- 7
-tranghongson@gmail.com
- 24 <td><input type="text" value={this.state.txtUsername} onChange={(e) => { this
- .setState({ txtUsername: e.target.value }) }} /></td>
+    };
+  }
+  render() {
+    if (this.context.token === '') {
+      return (
+        <div className="align-valign-center">
+        <h2 className="text-center">ADMIN LOGIN</h2>
+        <form>
+        <table className="align-center">
+        <tbody>
+        <tr>
+        <td>Username</td>
+        <td><input type="text" value={this.state.txtUsername} onChange={(e) => { this
+      .setState({ txtUsername: e.target.value }) }} /></td>
  25 </tr>
  26 <tr>
  27 <td>Password</td>
