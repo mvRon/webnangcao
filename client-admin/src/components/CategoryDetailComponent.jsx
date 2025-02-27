@@ -22,7 +22,7 @@ class CategoryDetail extends Component {
                                 <td>ID</td>
                                 <td><input type="text" value={this.state.txtID} onChange={(e) => {
                                     this.setState({ txtID: e.target.value })
-                                }} readOnly={true} /></td>
+                                }} readOnly={false} /></td>
                             </tr>
                             <tr>
                                 <td>Name</td>
@@ -34,7 +34,7 @@ class CategoryDetail extends Component {
                                 <td></td>
                                 <td>
                                     <input type="submit" value="ADD NEW" onClick={(e) => this.btnAddClick(e)} />
-                                    <input type="submit" value="UPDATE" />
+                                    <input type="submit" value="UPDATE" onClick={(e) => this.btnUpdateClick(e)} />
                                     <input type="submit" value="DELETE" />
                                 </td>
                             </tr>
@@ -46,6 +46,7 @@ class CategoryDetail extends Component {
     }
 
     //event-handlers
+    //Add btn
     btnAddClick(e) {
         e.preventDefault();
         const name = this.state.txtName;
@@ -56,7 +57,37 @@ class CategoryDetail extends Component {
             alert('Please input name')
         }
     }
+
+    //Update btn
+    btnUpdateClick(e) {
+        e.preventDefault();
+        const id = this.state.txtID;
+        const name = this.state.txtName;
+        if(id && name) {
+            const cate = {name: name};
+            this.apiPutCategory(id, cate);
+        } else {
+            alert('Please input id and name')
+        }
+    }
+
     //apis
+    //Update Category
+    apiPutCategory(id, cate) {
+        const config = { headers: { 'x-access-token': this.context.token } };
+        axios.put(`http://localhost:3000/api/admin/categories/${id}`, cate, config).then((res) => {
+            const result = res.data;
+            console.log("result: ", result)
+            if (result) {
+                alert('OK BABY!');
+                this.apiGetCategories();
+            } else {
+                alert('SORRY BABY!');
+            }
+        })
+    }
+
+    //Insert Category
     apiPostCategory(cate) {
         const config = { headers: { 'x-access-token': this.context.token } };
         axios.post('http://localhost:3000/api/admin/categories', cate, config).then((res) => {
@@ -70,6 +101,8 @@ class CategoryDetail extends Component {
             }
         })
     }
+
+    //Get all Category
     apiGetCategories() {
         const config = { headers: { 'x-access-token': this.context.token } };
         axios.get('http://localhost:3000/api/admin/categories', config).then((res) => {

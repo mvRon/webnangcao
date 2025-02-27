@@ -12,6 +12,7 @@ const CategoryDAO = require('../models/CategoryDAO');
 const MyConstants = require('../utils/MyConstants');
 
 //category
+//create new 
 router.post('/categories', JwtUtil.checkToken, async function (req, res) {
   const name = req.body.name;
   const category = { name: name };
@@ -19,10 +20,21 @@ router.post('/categories', JwtUtil.checkToken, async function (req, res) {
   res.json(result)
 });
 
+//get all
 router.get('/categories', JwtUtil.checkToken, async function (req, res) {
   const categories = await CategoryDAO.selectAll();
   res.json(categories)
 });
+
+//update by id
+router.put('/categories/:id', JwtUtil.checkToken, async function (req, res) {
+  const _id = req.params.id;
+  const name = req.body.name;
+  const category = { _id: _id, name: name };
+  const result = await CategoryDAO.update(category);
+  res.json(result);
+});
+
 
 
 // login

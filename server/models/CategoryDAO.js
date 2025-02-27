@@ -15,7 +15,13 @@ const CategoryDAO = {
         category._id = new mongoose.Types.ObjectId();
         const result = await Models.Category.create(category);
         return result;
-    }
+    },
+    async update(category) {
+        const newValue = {name: category.name};
+        const result = await Models.Category.findByIdAndUpdate(category._id, newValue, {new:true});
+        return result;
+    },
+    
 }
 
 module.exports = CategoryDAO;
