@@ -35,6 +35,13 @@ router.put('/categories/:id', JwtUtil.checkToken, async function (req, res) {
   res.json(result);
 });
 
+//delete by id
+router.delete('/categories/:id', JwtUtil.checkToken, async function (req, res) {
+  const _id = req.params.id;
+  const result = await CategoryDAO.delete(_id)
+  res.json(result);
+});
+
 
 
 // login
