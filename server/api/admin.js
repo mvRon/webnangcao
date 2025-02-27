@@ -12,6 +12,13 @@ const CategoryDAO = require('../models/CategoryDAO');
 const MyConstants = require('../utils/MyConstants');
 
 //category
+router.post('/categories', JwtUtil.checkToken, async function (req, res) {
+  const name = req.body.name;
+  const category = { name: name };
+  const result = await CategoryDAO.insert(category);
+  res.json(result)
+});
+
 router.get('/categories', JwtUtil.checkToken, async function (req, res) {
   const categories = await CategoryDAO.selectAll();
   res.json(categories)

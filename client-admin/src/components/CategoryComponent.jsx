@@ -38,10 +38,14 @@ class Category extends Component {
                     </table>
                 </div>
                 <div className='inline' />
-                <CategoryDetail item={this.state.itemSelected} />
+                <CategoryDetail item={this.state.item} updateCategories = {this.updateCategories}/>
                 <div className='float-clear' />
             </div>
         );
+    }
+
+    updateCategories = (categories) => {
+        this.setState({categories: categories})
     }
     componentDidMount() {
         this.apiGetCategories();
