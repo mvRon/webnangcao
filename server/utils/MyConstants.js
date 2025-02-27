@@ -5,9 +5,8 @@ const MyConstants = {
     DB_DATABASE : 'shoppingonline',
     EMAIL_USER : 'test02011825@hotmail.com', // Microsoft mail service
     EMAIL_PASS : 'Test011825',
-    JWT_SECRET : 'E3B0C44298fc1C149!AFBF4c8996FB924@27AE41e4649B934CA495991b7852B855',
-    
-    JWT_EXPIRES : '60000', // in milliseconds 3600000 = 1h
+    JWT_SECRET : 'a',
+    JWT_EXPIRES : '3600000', // in milliseconds 3600000 = 1h
 };
 module.exports = MyConstants;
 

@@ -8,6 +8,14 @@ const JwtUtil = require('../utils/JwtUtil');
 
 // daos
 const AdminDAO = require('../models/AdminDAO');
+const CategoryDAO = require('../models/CategoryDAO');
+const MyConstants = require('../utils/MyConstants');
+
+//category
+router.get('/categories', JwtUtil.checkToken, async function (req, res) {
+  const categories = await CategoryDAO.selectAll();
+  res.json(categories)
+});
 
 
 // login
@@ -18,6 +26,7 @@ router.post('/login', async function (req, res) {
     const admin = await AdminDAO.selectByUsernameAndPassword(username, password);
     if (admin) {
       const token = JwtUtil.genToken(username, password);
+      console.log("token: ", token)
       res.json({ success: true, message: 'Authentication successful', token: token });
     } else {
       res.json({ success: false, message: 'Incorrect username or password' });
