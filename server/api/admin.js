@@ -13,6 +13,22 @@ const CategoryDAO = require('../models/CategoryDAO');
 const MyConstants = require('../utils/MyConstants');
 const { Model } = require('mongoose');
 
+//Product
+router.get('/ products ', JwtUtil.checkToken, async function (req, res) {
+  // get data
+  var products = await ProductDAO.selectAll();
+  // pagination
+  const sizePage = 4;
+  const noPages = Math.ceil(products.length / sizePage);
+  var curPage = 1;
+  if (req.query.page) curPage = parseInt(req.query.page); // / products ? page = xxx
+  const offset = (curPage - 1) * sizePage;
+  products = products.slice(offset, offset + sizePage);
+  // return
+  const result = { products: products, noPages: noPages, curPage: curPage };
+  res.json(result);
+});
+
 //category
 //create new 
 router.post('/categories', JwtUtil.checkToken, async function (req, res) {
