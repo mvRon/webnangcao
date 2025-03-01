@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
+
 // utils
 const JwtUtil = require('../utils/JwtUtil');
 
@@ -10,6 +11,7 @@ const JwtUtil = require('../utils/JwtUtil');
 const AdminDAO = require('../models/AdminDAO');
 const CategoryDAO = require('../models/CategoryDAO');
 const MyConstants = require('../utils/MyConstants');
+const { Model } = require('mongoose');
 
 //category
 //create new 
@@ -18,6 +20,7 @@ router.post('/categories', JwtUtil.checkToken, async function (req, res) {
   const category = { name: name };
   const result = await CategoryDAO.insert(category);
   res.json(result)
+
 });
 
 //get all

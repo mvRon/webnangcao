@@ -38,7 +38,7 @@ class Category extends Component {
                     </table>
                 </div>
                 <div className='inline' />
-                <CategoryDetail item={this.state.item} updateCategories = {this.updateCategories}/>
+                <CategoryDetail item={this.state.itemSelected} updateCategories = {this.updateCategories}/>
                 <div className='float-clear' />
             </div>
         );

@@ -17,15 +17,15 @@ const CategoryDAO = {
         return result;
     },
     async update(category) {
-        const newValue = {name: category.name};
-        const result = await Models.Category.findByIdAndUpdate(category._id, newValue, {new:true});
+        const newValue = { name: category.name };
+        const result = await Models.Category.findByIdAndUpdate(category._id, newValue, { new: true });
         return result;
     },
-    async delete(_id){
+    async delete(_id) {
         const result = await Models.Category.findByIdAndDelete(_id);
         return result;
     }
-    
+
 }
 
 module.exports = CategoryDAO;

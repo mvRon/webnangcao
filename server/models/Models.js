@@ -7,7 +7,7 @@ const AdminSchema = mongoose.Schema ({
 }, { versionKey : false }) ;
 const CategorySchema = mongoose.Schema ({
     _id : mongoose.Schema.Types.ObjectId,
-    name : String
+    name : String,
 }, { versionKey : false }) ;
 const CustomerSchema = mongoose.Schema ({
     _id : mongoose.Schema.Types.ObjectId,
