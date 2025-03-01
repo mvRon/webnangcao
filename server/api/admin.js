@@ -14,7 +14,7 @@ const MyConstants = require('../utils/MyConstants');
 const { Model } = require('mongoose');
 
 //Product
-router.get('/ products ', JwtUtil.checkToken, async function (req, res) {
+router.get('/products ', JwtUtil.checkToken, async function (req, res) {
   // get data
   var products = await ProductDAO.selectAll();
   // pagination
