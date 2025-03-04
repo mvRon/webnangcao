@@ -9,17 +9,17 @@ class Menu extends Component {
       <div className="border-bottom">
         <div className="float-left">
           <ul className="menu">
-              <li className="menu"><Link to="/admin/home">Home</Link></li>
-              <li className="menu"><Link to="/admin/category">Category</Link></li>
-              <li className="menu"><Link to="">Product</Link></li>
-              <li className="menu"><Link to="">Order</Link></li>
-              <li className="menu"><Link to="">Customer</Link></li>
+            <li className="menu"><Link to="/admin/home">Home</Link></li>
+            <li className="menu"><Link to="/admin/category">Category</Link></li>
+            <li className="menu"><Link to='/admin/product'>Product</Link></li>
+            <li className="menu"><Link to="">Order</Link></li>
+            <li className="menu"><Link to="">Customer</Link></li>
           </ul>
         </div>
         <div className="float-right">
           Hello <b>{this.context.username}</b> | <Link to="/" onClick={() => this.lnkLogoutClick()}>Logout</Link>
         </div>
-        <div className="float-clear"/>
+        <div className="float-clear" />
       </div>
     );
   }

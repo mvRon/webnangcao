@@ -22,7 +22,7 @@ class CategoryDetail extends Component {
                                 <td>ID</td>
                                 <td><input type="text" value={this.state.txtID} onChange={(e) => {
                                     this.setState({ txtID: e.target.value })
-                                }} readOnly={false} /></td>
+                                }} readOnly={true} /></td>
                             </tr>
                             <tr>
                                 <td>Name</td>
